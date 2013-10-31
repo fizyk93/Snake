@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Snake", "Snake\Snake.vcxproj", "{22672436-208C-41A2-B4A0-2B1B7D7FAD53}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Snake2", "Snake2\Snake2.vcxproj", "{35DBA176-DDF1-4426-B45C-CF8DB412505C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22672436-208C-41A2-B4A0-2B1B7D7FAD53}.Debug|Win32.ActiveCfg = Debug|Win32
+		{22672436-208C-41A2-B4A0-2B1B7D7FAD53}.Debug|Win32.Build.0 = Debug|Win32
+		{22672436-208C-41A2-B4A0-2B1B7D7FAD53}.Release|Win32.ActiveCfg = Release|Win32
+		{22672436-208C-41A2-B4A0-2B1B7D7FAD53}.Release|Win32.Build.0 = Release|Win32
+		{35DBA176-DDF1-4426-B45C-CF8DB412505C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{35DBA176-DDF1-4426-B45C-CF8DB412505C}.Debug|Win32.Build.0 = Debug|Win32
+		{35DBA176-DDF1-4426-B45C-CF8DB412505C}.Release|Win32.ActiveCfg = Release|Win32
+		{35DBA176-DDF1-4426-B45C-CF8DB412505C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
