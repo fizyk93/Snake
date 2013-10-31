@@ -2,8 +2,10 @@
 
 #include <list>
 #include "Point.h"
+#include "Object.h"
 
 class Snake
+	: public Object
 {
 public:
 

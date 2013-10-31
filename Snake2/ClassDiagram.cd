@@ -3,7 +3,7 @@
   <Class Name="Snake">
     <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAQAgAAgAACAAAAAAAAIAAAIAAAAyAAAAAAEAgA=</HashCode>
+      <HashCode>AAABAAQAgCAgAACAAAAAAAAIAAAIAAAAyAAAAAAEAgA=</HashCode>
       <FileName>Snake.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -17,7 +17,7 @@
   <Class Name="Game">
     <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAQCQAIAAIBAYBAAhEAImAAACAeACAAAAQAAI=</HashCode>
+      <HashCode>AAIAAAAAQCQAIAAIBAcBAAhEAImAUACAeACAAAAQAAI=</HashCode>
       <FileName>Game.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -26,22 +26,15 @@
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
-    <NestedTypes>
-      <Enum Name="Allegro::Font">
-        <TypeIdentifier>
-          <NewMemberFileName>Allegro.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>JAYAgAABAAACABAAQAAAAAAQCIEAAAIgAQAAAAAAIig=</HashCode>
       <FileName>Allegro.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Board">
-    <Position X="11.75" Y="2.5" Width="1.5" />
+    <Position X="11" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAABgAACAEQCAACAAAAA=</HashCode>
+      <HashCode>AAIAAAAAACAAAAAABAIAAABAAAFgAACAEQCAACAEAAA=</HashCode>
       <FileName>Board.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -53,10 +46,24 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BigFood">
-    <Position X="4.75" Y="3.75" Width="1.5" />
+    <Position X="7.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAAAAAABAAAQAAEAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BigFood.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu">
+    <Position X="9" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAIAAIAAAAAAAAIAACAAAAAAAAEAAA=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Object">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAgAAIAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Object.h</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Direction">
@@ -64,6 +71,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Point.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Font">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAQAAAAAAAAIAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Allegro.h</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

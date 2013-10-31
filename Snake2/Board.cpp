@@ -1,8 +1,8 @@
 #include "Board.h"
-#include "Allegro.h"
 
 
-Board::Board(int x, int y, short int *l, int *r)
+
+Board::Board(int x, int y, short int *l, int *r, std::vector<ALLEGRO_FONT*> *f)
 {
 
 	sizeX = x;
@@ -13,6 +13,7 @@ Board::Board(int x, int y, short int *l, int *r)
 	y1 = 20*y +y0;
 	level = l;
 	result = r;
+	font = f;
 }
 
 

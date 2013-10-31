@@ -6,7 +6,8 @@ Game::Game(void)
 {
 	sizeX = 48;
 	sizeY = 30;
-	board = new Board(48, 30, &currLevel, &result);
+	board = new Board(48, 30, &currLevel, &result, &font);
+	menuBoard= new Menu(0,0,&currLevel, &result, &font);
 	snake = NULL;
 	food = new Food(sizeX, sizeY);
 	done = false;
@@ -27,6 +28,7 @@ Game::~Game(void)
 	delete board;
 	if(snake) delete snake;
 	delete food;
+	delete menuBoard;
 }
 
 void Game::loadLevel(int num)
@@ -73,15 +75,15 @@ void Game::mainLoop()
 			switch(events.keyboard.keycode)
             {
 				case ALLEGRO_KEY_UP:
-                    option = addModulo(--option, 4);
+                    menuBoard->option = addModulo(--(menuBoard->option), 4);
                     break;
                 case ALLEGRO_KEY_DOWN:
-                    option = addModulo(++option, 4);
+                     menuBoard->option = addModulo(++(menuBoard->option), 4);
                     break;
                 case ALLEGRO_KEY_ENTER:
-                    if(option == 0)
+                    if(menuBoard->option == 0)
 						resetGame();
-					else if(option == 1)
+					else if(menuBoard->option == 1)
                     {
 						if(!snake) resetGame();
 						else
@@ -91,26 +93,25 @@ void Game::mainLoop()
 						}
                         
                     }
-                    else if(option == 3)
+                    else if(menuBoard->option == 3)
                         done = true;
                     break;
 				case ALLEGRO_KEY_RIGHT:
-					if(option == 2)
+					if(menuBoard->option == 2)
 					{
 						currLevel = addModulo(++currLevel, 10);
 						loadLevel(currLevel);
 					}
 					break;
 				case ALLEGRO_KEY_LEFT:
-					if(option == 2)
+					if(menuBoard->option == 2)
 					{
 						currLevel = addModulo(--currLevel, 10);
 						loadLevel(currLevel);
 					}
 					break;
 				case ALLEGRO_KEY_ESCAPE:
-                    draw=true;
-					menu=false;
+                    menuBoard->option = 3;
                     break;
 				default: 
 					break;
@@ -185,6 +186,8 @@ void Game::mainLoop()
 
             if(draw) snake->update(dir);
 		}
+		else if(events.type == ALLEGRO_EVENT_TIMER && menu)
+			menuBoard->update();
 		
 
 
@@ -193,38 +196,7 @@ void Game::mainLoop()
 		if(menu)
 		{
 			draw = false;
-			_itoa_s(currLevel+1, levelStr, 3, 10);
-			al_clear_to_color(al_map_rgb(255,255,255));
-            al_draw_text(font[BIG], al_map_rgb(0,255,0), 470, 130, ALLEGRO_ALIGN_CENTRE, "Snake");
-            al_draw_rectangle(340, 110, 610, 600, al_map_rgb(64,64,64), 5);
-            al_draw_rectangle(630, 110, 900, 600, al_map_rgb(64,64,64), 5);
-            al_draw_line( 370, 210, 580, 210, al_map_rgb(255,0,0), 4 );
-
-			for(int i = 0; i < 4; i++)
-                color[i] = al_map_rgb(128,128,128);
-
-            switch(option)
-            {
-                case 0:
-                    color[0] = al_map_rgb(128,128,255);
-                    break;
-                case 1:
-                    color[1] = al_map_rgb(128,128,255);
-                    break;
-                case 2:
-                    color[2] = al_map_rgb(128,128,255);
-                    break;
-                case 3:
-                    color[3] = al_map_rgb(128,128,255);
-                    break;
-            }
-
-			al_draw_text( font[BOLDS], color[0], 470, 230, ALLEGRO_ALIGN_CENTRE, "Nowa gra");
-            al_draw_text( font[BOLDS], color[1], 470, 330, ALLEGRO_ALIGN_CENTRE, "Wznow");
-            al_draw_text( font[BOLDS], color[2], 470, 430, ALLEGRO_ALIGN_CENTRE, "Poziom: ");
-            al_draw_text( font[BOLDS], color[2], 540, 430, ALLEGRO_ALIGN_CENTRE, levelStr);
-            al_draw_text( font[BOLDS], color[3], 470, 530, ALLEGRO_ALIGN_CENTRE, "Wyjscie");
-
+			menuBoard->draw();
 			al_flip_display();
 		}
 		else if(draw)
@@ -233,7 +205,7 @@ void Game::mainLoop()
 			al_clear_to_color(al_map_rgb(255,255,255));
 			board->draw();
 			al_draw_rectangle(160+food->getX()+6, 60+food->getY()+6, 160+food->getX()+20-6, 60+food->getY()+20-6, al_map_rgb(0,0,0), 4);
-
+			_itoa_s(currLevel+1, levelStr, 3, 10);
 			_itoa_s(result, resultStr, 5, 10);
 		    al_draw_text( font[SMALL], al_map_rgb(128,128,128), 370, 10, ALLEGRO_ALIGN_CENTRE, "Wynik: ");
             al_draw_text( font[SMALL], al_map_rgb(128,128,128), 450, 10, ALLEGRO_ALIGN_CENTRE, resultStr);

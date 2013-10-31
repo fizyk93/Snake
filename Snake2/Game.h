@@ -7,6 +7,7 @@
 #include "Snake.h"
 #include "Food.h"
 #include "BigFood.h"
+#include "Menu.h"
 
 class Game
 	:public Allegro
@@ -17,12 +18,13 @@ public:
 	Food *food;
 	Snake *snake;
 	Board *board;
+	Menu *menuBoard;
 	Direction dir, tmpDir;
 	float newInterval;
 	int iter;
 	
 
-	ALLEGRO_COLOR color[4];
+	//ALLEGRO_COLOR color[4];
 	int option;
 
 	Game(void);

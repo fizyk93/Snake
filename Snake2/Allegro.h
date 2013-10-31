@@ -8,7 +8,10 @@
 #include "allegro5/allegro_native_dialog.h"
 #include <vector>
 
-
+enum Font
+{
+	BIG, SMALL, BOLDB, BOLDS
+};
 
 class Allegro
 {
@@ -17,10 +20,7 @@ public:
 	static const int FPS = 5.0; 
 	static const int WindowWidth = 1280, WindowHeight = 720; 
 
-	enum Font
-	{
-		BIG, SMALL, BOLDB, BOLDS
-	};
+
 
 	ALLEGRO_DISPLAY *display;
 	std::vector<ALLEGRO_FONT*> font;
