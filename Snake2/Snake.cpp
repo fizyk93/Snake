@@ -4,6 +4,7 @@
 
 Snake::Snake(int x, int y)
 {
+	dir = RIGHT;
 	unit = 20;
 	for(int i = 0; i<6; i++)
     {
@@ -27,7 +28,7 @@ std::list<Point>::iterator Snake::tail()
 	return snake.end();
 }
 
-void Snake::update(Direction dir)
+void Snake::update()
 {
 	switch (dir)
 	{
@@ -59,7 +60,7 @@ int Snake::addModulo(int sum, int m)
 	else return sum;
 }
 
-void Snake::drawSnake()
+void Snake::draw()
 {
 	std::list<Point>::iterator it = head();
 	it++;

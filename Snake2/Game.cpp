@@ -47,6 +47,7 @@ void Game::resetGame()
 {
 	if(snake) delete snake;
 	snake = new Snake();
+	food->update();
 	tmpDir = RIGHT;
 	result = 0;
 	menu = false;
@@ -122,19 +123,19 @@ void Game::mainLoop()
             switch(events.keyboard.keycode)
             {
                 case ALLEGRO_KEY_UP:
-                    if(dir == DOWN) break;
+                    if(snake->dir == DOWN) break;
                     tmpDir = UP;
                     break;
                 case ALLEGRO_KEY_RIGHT:
-                    if(dir == LEFT) break;
+                    if(snake->dir == LEFT) break;
                     tmpDir = RIGHT;
                     break;
                 case ALLEGRO_KEY_DOWN:
-                    if(dir == UP) break;
+                    if(snake->dir == UP) break;
                     tmpDir = DOWN;
                     break;
                 case ALLEGRO_KEY_LEFT:
-                    if(dir == RIGHT) break;
+                    if(snake->dir == RIGHT) break;
                     tmpDir = LEFT;
 					break;
 				case ALLEGRO_KEY_T:
@@ -169,14 +170,14 @@ void Game::mainLoop()
 				endgame = true;
 			}
 
-            dir = tmpDir;
+            snake->dir = tmpDir;
 			
 			if(*food == *snake->head())
 			{
 				result += (currLevel+1);
 				do
 				{
-				food->updateFood();
+				food->update();
 				}while(snake->inSnake(*food));
 
 				snake->growSnake();
@@ -184,7 +185,7 @@ void Game::mainLoop()
 			}
 
 
-            if(draw) snake->update(dir);
+            if(draw) snake->update();
 		}
 		else if(events.type == ALLEGRO_EVENT_TIMER && menu)
 			menuBoard->update();
@@ -204,15 +205,17 @@ void Game::mainLoop()
 			
 			al_clear_to_color(al_map_rgb(255,255,255));
 			board->draw();
-			al_draw_rectangle(160+food->getX()+6, 60+food->getY()+6, 160+food->getX()+20-6, 60+food->getY()+20-6, al_map_rgb(0,0,0), 4);
+			//al_draw_rectangle(160+food->getX()+6, 60+food->getY()+6, 160+food->getX()+20-6, 60+food->getY()+20-6, al_map_rgb(0,0,0), 4);
+			food->draw();
+			/*
 			_itoa_s(currLevel+1, levelStr, 3, 10);
 			_itoa_s(result, resultStr, 5, 10);
 		    al_draw_text( font[SMALL], al_map_rgb(128,128,128), 370, 10, ALLEGRO_ALIGN_CENTRE, "Wynik: ");
             al_draw_text( font[SMALL], al_map_rgb(128,128,128), 450, 10, ALLEGRO_ALIGN_CENTRE, resultStr);
             al_draw_text( font[SMALL], al_map_rgb(128,128,128), 640, 10, ALLEGRO_ALIGN_CENTRE, "Poziom: ");
-            al_draw_text( font[SMALL], al_map_rgb(128,128,128), 720, 10, ALLEGRO_ALIGN_CENTRE, levelStr);
+            al_draw_text( font[SMALL], al_map_rgb(128,128,128), 720, 10, ALLEGRO_ALIGN_CENTRE, levelStr);*/
 		    
-			snake->drawSnake();
+			snake->draw();
 
 			al_flip_display();
 			 

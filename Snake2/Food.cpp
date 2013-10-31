@@ -1,4 +1,5 @@
 #include "Food.h"
+#include "Allegro.h"
 
 #include <ctime>
 #include <cstdlib>
@@ -18,7 +19,7 @@ Food::~Food(void)
 {
 }
 
-void Food::updateFood()
+void Food::update()
 {
 	int tmpx, tmpy;
 	srand(time(NULL));
@@ -31,4 +32,9 @@ void Food::updateFood()
 	x=tmpx;
 	y=tmpy;
 
+}
+
+void Food::draw()
+{
+	al_draw_rectangle(160+x+6, 60+y+6, 160+x+20-6, 60+y+20-6, al_map_rgb(0,0,0), 4);
 }

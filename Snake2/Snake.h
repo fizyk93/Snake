@@ -14,13 +14,13 @@ public:
 	Snake(int x = 100, int y = 100);
 	~Snake(void);
 
-	void update(Direction dir);
+	void update();
 
 	std::list<Point>::iterator head();
 
 	std::list<Point>::iterator tail();
 
-	void drawSnake();
+	void draw();
 
 	void growSnake();
 
