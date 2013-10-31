@@ -49,6 +49,17 @@ private:
 	char levelStr[3];
 	int result;
 	char resultStr[5];
+
+	short int getLevel()
+	{
+		return currLevel;
+	}
+
+	int getResult()
+	{
+		return result;
+	}
+
 	
 
 };

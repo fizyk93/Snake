@@ -6,7 +6,7 @@ Game::Game(void)
 {
 	sizeX = 48;
 	sizeY = 30;
-	board = new Board(48, 30);
+	board = new Board(48, 30, &currLevel, &result);
 	snake = NULL;
 	food = new Food(sizeX, sizeY);
 	done = false;
@@ -231,7 +231,7 @@ void Game::mainLoop()
         {
 			
 			al_clear_to_color(al_map_rgb(255,255,255));
-			board->drawBoard();
+			board->draw();
 			al_draw_rectangle(160+food->getX()+6, 60+food->getY()+6, 160+food->getX()+20-6, 60+food->getY()+20-6, al_map_rgb(0,0,0), 4);
 
 			_itoa_s(result, resultStr, 5, 10);
