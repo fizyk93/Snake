@@ -105,14 +105,22 @@ int Allegro::eventsInit()
 
 int Allegro::displaySetUp()
 {
+    al_get_display_mode(al_get_num_display_modes()-1, &disp_data);
+
+	//al_set_window_position(display, (disp_data.width-WindowWidth)/2, (disp_data.height-WindowHeight)/2-30);
+	al_set_new_display_flags(ALLEGRO_FULLSCREEN);
+	std::cout << "Width: " << disp_data.width << "\nHeight: " << disp_data.height << "\nFormat: " << disp_data.format << "\nRefresh rate: " << disp_data.refresh_rate;
+
+	//display = al_create_display(WindowWidth, WindowHeight);
+	//display = al_create_display(disp_data.width, disp_data.height);
+	WindowWidth = disp_data.width;
+	WindowHeight = disp_data.height;
 	display = al_create_display(WindowWidth, WindowHeight);
+
+	std::cout << WindowHeight;
 
 	if(!display)
 	al_show_native_message_box(NULL, "BLAD", "", "Blad wczytywania Allegro Display", NULL, ALLEGRO_MESSAGEBOX_ERROR);
-
-    al_get_display_mode(al_get_num_display_modes()-1, &disp_data);
-
-	al_set_window_position(display, (disp_data.width-WindowWidth)/2, (disp_data.height-WindowHeight)/2-30);
 
     /*ALLEGRO_BITMAP *icon = al_load_bitmap("SnakeIcon.gif");
 	if ( !icon )

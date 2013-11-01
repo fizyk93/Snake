@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Snake">
-    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Position X="11.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAQAgCAgAACAAAAAAAAIAAAIAAAAyAAAAAAEAgA=</HashCode>
+      <HashCode>AAABAAAAgCAgAACAAAIAAAAIAAAIAAAAyAAAAAAEAgA=</HashCode>
       <FileName>Snake.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -32,49 +32,42 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Board">
-    <Position X="11" Y="3.75" Width="1.5" />
+    <Position X="9" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAACAAAAAABAIAAABAAAFgAACAEQCAACAEAAA=</HashCode>
+      <HashCode>AAIAAAAAACBAAAAABAIAAABAAAFgAACAAQAAQCAEAAA=</HashCode>
       <FileName>Board.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Food">
-    <Position X="6.75" Y="0.75" Width="1.5" />
+    <Position X="6.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAIAAEACAAgAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAIAAEACAAgAEAAA=</HashCode>
       <FileName>Food.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BigFood">
-    <Position X="7.25" Y="4" Width="1.5" />
+    <Position X="6.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAAAAAABAAAQAAEAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BigFood.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Menu">
-    <Position X="9" Y="5.75" Width="1.5" />
+    <Position X="9" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABAAAAIAAIAAAAAAAAIAACAAAAAAAAEAAA=</HashCode>
       <FileName>Menu.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Object">
-    <Position X="13.25" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAgAAIAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
-      <FileName>Object.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Enum Name="Direction">
-    <Position X="11.5" Y="0.5" Width="1.5" />
+    <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Point.h</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Font">
-    <Position X="13.75" Y="0.5" Width="1.5" />
+    <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAABAAQAAAAAAAAIAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>Allegro.h</FileName>

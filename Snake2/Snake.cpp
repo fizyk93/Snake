@@ -67,11 +67,11 @@ void Snake::draw()
 
 	for(it; it != tail(); it++)
 	{
-		al_draw_filled_rectangle(160+it->getX()+1, 60+it->getY()+1, 160+it->getX()+20-1, 60+it->getY()+20-1, al_map_rgba_f(0,1,0, 1));
+		al_draw_filled_rectangle(adjX+it->getX()+1, adjY+it->getY()+50+1, adjX+it->getX()+unit-1, adjY+it->getY()+50+unit-1, al_map_rgba_f(0,1,0, 1));
 	}
 
 	it = head();
-	al_draw_filled_rectangle(160+it->getX()+1, 60+it->getY()+1, 160+it->getX()+unit-1, 60+it->getY()+unit-1, al_map_rgba_f(1,0.2,0.1, 2));
+	al_draw_filled_rectangle(adjX+it->getX()+1, adjY+it->getY()+50+1, adjX+it->getX()+unit-1, adjY+it->getY()+50+unit-1, al_map_rgba_f(1,0.2,0.1, 2));
 
 }
 

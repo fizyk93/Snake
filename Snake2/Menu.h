@@ -5,7 +5,7 @@ class Menu :
 	public Board
 {
 public:
-	Menu(int x, int y, short int *l, int *r, std::vector<ALLEGRO_FONT*> *f);
+	Menu(short int *l, int *r, std::vector<ALLEGRO_FONT*> *f);
 	~Menu(void);
 
 	void draw();

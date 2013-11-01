@@ -14,10 +14,11 @@ int main(int argc, char **argv)
 	
 	game->loadAllegro();
 	
-
 	game->mainLoop();
 
 	game->quitAllegro();
+
+
 	delete game;
 	
 

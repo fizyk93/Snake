@@ -36,5 +36,5 @@ void Food::update()
 
 void Food::draw()
 {
-	al_draw_rectangle(160+x+6, 60+y+6, 160+x+20-6, 60+y+20-6, al_map_rgb(0,0,0), 4);
+	al_draw_rectangle(adjX+x+6, adjY+y+50+6, adjX+x+unit-6, adjY+y+50+unit-6, al_map_rgb(0,0,0), 4);
 }

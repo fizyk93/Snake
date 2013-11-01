@@ -6,8 +6,8 @@ Game::Game(void)
 {
 	sizeX = 48;
 	sizeY = 30;
-	board = new Board(48, 30, &currLevel, &result, &font);
-	menuBoard= new Menu(0,0,&currLevel, &result, &font);
+	board = new Board(&currLevel, &result, &font);
+	menuBoard= new Menu(&currLevel, &result, &font);
 	snake = NULL;
 	food = new Food(sizeX, sizeY);
 	done = false;
@@ -52,6 +52,7 @@ void Game::resetGame()
 	result = 0;
 	menu = false;
 	draw = true;
+	Object::adjPos(WindowWidth, WindowHeight);
 	
 }
 
@@ -205,16 +206,7 @@ void Game::mainLoop()
 			
 			al_clear_to_color(al_map_rgb(255,255,255));
 			board->draw();
-			//al_draw_rectangle(160+food->getX()+6, 60+food->getY()+6, 160+food->getX()+20-6, 60+food->getY()+20-6, al_map_rgb(0,0,0), 4);
-			food->draw();
-			/*
-			_itoa_s(currLevel+1, levelStr, 3, 10);
-			_itoa_s(result, resultStr, 5, 10);
-		    al_draw_text( font[SMALL], al_map_rgb(128,128,128), 370, 10, ALLEGRO_ALIGN_CENTRE, "Wynik: ");
-            al_draw_text( font[SMALL], al_map_rgb(128,128,128), 450, 10, ALLEGRO_ALIGN_CENTRE, resultStr);
-            al_draw_text( font[SMALL], al_map_rgb(128,128,128), 640, 10, ALLEGRO_ALIGN_CENTRE, "Poziom: ");
-            al_draw_text( font[SMALL], al_map_rgb(128,128,128), 720, 10, ALLEGRO_ALIGN_CENTRE, levelStr);*/
-		    
+			food->draw();		    
 			snake->draw();
 
 			al_flip_display();
@@ -222,7 +214,6 @@ void Game::mainLoop()
 		}
 		else if(endgame)
         {
-			//al_clear_to_color(al_map_rgb(255,255,255));
             _itoa_s(result, resultStr, 5, 10);
             al_draw_filled_rectangle(160, 60, 1120, 660, al_map_rgba_f(0.7,0.7,0.7, 0.1));
             

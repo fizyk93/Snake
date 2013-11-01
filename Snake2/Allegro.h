@@ -18,7 +18,7 @@ class Allegro
 public:
 
 	static const int FPS = 5.0; 
-	static const int WindowWidth = 1280, WindowHeight = 720; 
+	int WindowWidth, WindowHeight;
 
 
 

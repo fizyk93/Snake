@@ -3,8 +3,8 @@
 
 
 
-Menu::Menu(int x, int y, short *l, int *r, std::vector<ALLEGRO_FONT*> *f)
-	: Board(x, y, l, r, f) 
+Menu::Menu(short *l, int *r, std::vector<ALLEGRO_FONT*> *f)
+	: Board(l, r, f) 
 {
 	option = 0;
 }
