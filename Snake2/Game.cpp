@@ -6,8 +6,10 @@ Game::Game(void)
 {
 	sizeX = 48;
 	sizeY = 30;
+	
 	board = new Board(&currLevel, &result, &font);
 	menuBoard= new Menu(&currLevel, &result, &font);
+
 	snake = NULL;
 	food = new Food(sizeX, sizeY);
 	done = false;
@@ -52,13 +54,15 @@ void Game::resetGame()
 	result = 0;
 	menu = false;
 	draw = true;
-	Object::adjPos(WindowWidth, WindowHeight);
+	
+	
 	
 }
 
 
 void Game::mainLoop()
 {
+	Object::adjPos(WindowWidth, WindowHeight);
 	while(!done)
     {
 

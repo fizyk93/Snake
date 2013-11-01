@@ -18,16 +18,16 @@ void Menu::draw()
 {
 		_itoa_s(*level+1, levelStr, 3, 10);
 		al_clear_to_color(al_map_rgb(255,255,255));
-        al_draw_text(*(font->begin()+BIG), al_map_rgb(0,255,0), 470, 130, ALLEGRO_ALIGN_CENTRE, "Snake");
-        al_draw_rectangle(340, 110, 610, 600, al_map_rgb(64,64,64), 5);
-        al_draw_rectangle(630, 110, 900, 600, al_map_rgb(64,64,64), 5);
-        al_draw_line( 370, 210, 580, 210, al_map_rgb(255,0,0), 4 );
+        al_draw_text(*(font->begin()+BIG), al_map_rgb(0,255,0), adjX+300, adjY+130, ALLEGRO_ALIGN_CENTRE, "Snake");
+        al_draw_rectangle(adjX+170, adjY+100, adjX+440, adjY+590, al_map_rgb(64,64,64), 5);
+        al_draw_rectangle(adjX+460, adjY+100, adjX+760, adjY+590, al_map_rgb(64,64,64), 5);
+        al_draw_line( adjX+200, adjY+200, adjX+410, adjY+200, al_map_rgb(255,0,0), 4 );
 
-		al_draw_text(*(font->begin()+BOLDS), color[0], 470, 230, ALLEGRO_ALIGN_CENTRE, "Nowa gra");
-        al_draw_text(*(font->begin()+BOLDS), color[1], 470, 330, ALLEGRO_ALIGN_CENTRE, "Wznow");
-        al_draw_text(*(font->begin()+BOLDS), color[2], 470, 430, ALLEGRO_ALIGN_CENTRE, "Poziom: ");
-        al_draw_text(*(font->begin()+BOLDS), color[2], 540, 430, ALLEGRO_ALIGN_CENTRE, levelStr);
-        al_draw_text(*(font->begin()+BOLDS), color[3], 470, 530, ALLEGRO_ALIGN_CENTRE, "Wyjscie");
+		al_draw_text(*(font->begin()+BOLDS), color[0], adjX+300, adjY+230, ALLEGRO_ALIGN_CENTRE, "Nowa gra");
+        al_draw_text(*(font->begin()+BOLDS), color[1], adjX+300, adjY+330, ALLEGRO_ALIGN_CENTRE, "Wznow");
+        al_draw_text(*(font->begin()+BOLDS), color[2], adjX+300, adjY+430, ALLEGRO_ALIGN_CENTRE, "Poziom: ");
+        al_draw_text(*(font->begin()+BOLDS), color[2], adjX+370, adjY+430, ALLEGRO_ALIGN_CENTRE, levelStr);
+        al_draw_text(*(font->begin()+BOLDS), color[3], adjX+300, adjY+530, ALLEGRO_ALIGN_CENTRE, "Wyjscie");
 }
 
 void Menu::update()

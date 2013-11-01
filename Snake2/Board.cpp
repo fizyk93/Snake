@@ -24,7 +24,7 @@ Board::~Board(void)
 void Board::draw()
 {
 	
-	al_draw_rectangle(Object::adjX-2, adjY+50-2, adjX+20*sizeX+2, adjY+20*sizeY+50+2, al_map_rgb(128,128,128), 4);
+	al_draw_rectangle(adjX-2, adjY+50-2, adjX+20*sizeX+2, adjY+20*sizeY+50+2, al_map_rgb(128,128,128), 4);
 	_itoa_s((int)*level+1, levelStr, 3, 10);
 	_itoa_s(*result, resultStr, 5, 10);
 	al_draw_text(*(font->begin()+SMALL), al_map_rgb(128,128,128), adjX+370, adjY, ALLEGRO_ALIGN_CENTRE, "Wynik: ");
