@@ -7,10 +7,13 @@ Game::Game(void)
 	sizeX = 48;
 	sizeY = 30;
 	
-	board = new Board(&currLevel, &result, &font);
-	menuBoard= new Menu(&currLevel, &result, &font);
-
 	file = new FileMng;
+
+	board = new Board(&currLevel, &result, &font);
+	menuBoard= new Menu(&currLevel, &result, &font, file->tab);
+	endBoard = new Endgame(&currLevel, &result, &font);
+
+	
 	snake = NULL;
 	food = new Food(sizeX, sizeY);
 	done = false;
@@ -57,6 +60,7 @@ void Game::resetGame()
 	result = 0;
 	menu = false;
 	draw = true;
+	endgame = false;
 	
 	
 	
@@ -99,7 +103,7 @@ void Game::mainLoop()
 						if(!snake) resetGame();
 						else
 						{
-							draw = true;
+							if(!endgame) draw = true;
 							menu = false;
 						}
                         
@@ -169,7 +173,6 @@ void Game::mainLoop()
                     menu=true;
                     break;
 				case ALLEGRO_KEY_ENTER:
-					
 					menu = true;
 					break;
 			}
@@ -181,7 +184,6 @@ void Game::mainLoop()
 				draw = false;
 				endgame = true;
 				file->update(result);
-				//file->read();
 			}
 
             snake->dir = tmpDir;
@@ -191,8 +193,8 @@ void Game::mainLoop()
 				result += (currLevel+1);
 				do
 				{
-				food->update();
-				}while(snake->inSnake(*food));
+					food->update();
+				} while(snake->inSnake(*food));
 
 				snake->growSnake();
 
@@ -204,9 +206,6 @@ void Game::mainLoop()
 		else if(events.type == ALLEGRO_EVENT_TIMER && menu)
 			menuBoard->update();
 		
-
-
-		//al_clear_to_color(al_map_rgb(255,255,255));
 		
 		if(menu)
 		{
@@ -226,14 +225,11 @@ void Game::mainLoop()
 		}
 		else if(endgame)
         {
-            _itoa_s(result, resultStr, 5, 10);
-            al_draw_filled_rectangle(160, 60, 1120, 660, al_map_rgba_f(0.7,0.7,0.7, 0.1));
-            
-            al_draw_text( font[BIG], al_map_rgb(128,128,128), 620, 250, ALLEGRO_ALIGN_CENTRE, "Koniec gry!");
-            al_draw_text( font[BIG], al_map_rgb(128,128,128), 600, 350, ALLEGRO_ALIGN_CENTRE, "Wynik: ");
-            al_draw_text( font[BIG], al_map_rgb(128,128,128), 770, 350, ALLEGRO_ALIGN_CENTRE, resultStr);
-            al_flip_display();
-			endgame = false;
+			al_clear_to_color(al_map_rgb(255,255,255));
+			board->draw();
+			food->draw();		    
+			snake->draw();
+			endBoard->draw();
         }
 	}
 
@@ -241,19 +237,3 @@ void Game::mainLoop()
 
 
 }
-/*
-bool Game::operator== (Point& a)
-{
-	return ((snake->begin()->getX() == a.getX()) && (snake->begin()->getY() == a.getY()));
-}
-
-
-void Game::eaten()
-{
-	if(*this == *food)
-	{
-		std::cout << "\nFood: " << food->getX() << " " << food->getY() << "\nHead: " << snake->begin()->getX() << " " << snake->begin()->getY();
-		food->updateFood();
-		
-	}
-}*/

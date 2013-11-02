@@ -1,12 +1,14 @@
 #include "Menu.h"
+#include <iostream>
 
 
 
 
-Menu::Menu(short *l, int *r, std::vector<ALLEGRO_FONT*> *f)
+Menu::Menu(short *l, int *r, std::vector<ALLEGRO_FONT*> *f, int *t)
 	: Board(l, r, f) 
 {
 	option = 0;
+	results = t;
 }
 
 
@@ -28,6 +30,19 @@ void Menu::draw()
         al_draw_text(*(font->begin()+BOLDS), color[2], adjX+300, adjY+430, ALLEGRO_ALIGN_CENTRE, "Poziom: ");
         al_draw_text(*(font->begin()+BOLDS), color[2], adjX+370, adjY+430, ALLEGRO_ALIGN_CENTRE, levelStr);
         al_draw_text(*(font->begin()+BOLDS), color[3], adjX+300, adjY+530, ALLEGRO_ALIGN_CENTRE, "Wyjscie");
+
+		al_draw_text(*(font->begin()+BOLDS), al_map_rgb(128,128,128), adjX+600, adjY+130, ALLEGRO_ALIGN_CENTRE, "Najlepsze");
+		al_draw_text(*(font->begin()+BOLDS), al_map_rgb(128,128,128), adjX+600, adjY+160, ALLEGRO_ALIGN_CENTRE, "wyniki:");
+
+		for(int i = 0; i<10; i++)
+		{
+			_itoa_s(i+1, nrStr, 3, 10);
+			_itoa_s(results[i], resultStr, 5, 10);
+			al_draw_text(*(font->begin()+BOLDS), al_map_rgb(128,128,128), adjX+530, adjY+220+35*i, ALLEGRO_ALIGN_RIGHT, nrStr);
+            al_draw_text(*(font->begin()+BOLDS), al_map_rgb(128,128,128), adjX+545, adjY+220+35*i, ALLEGRO_ALIGN_RIGHT, ".");
+			al_draw_text(*(font->begin()+BOLDS), al_map_rgb(128,128,128), adjX+640, adjY+220+35*i, ALLEGRO_ALIGN_RIGHT, resultStr);
+		}
+
 }
 
 void Menu::update()

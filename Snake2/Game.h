@@ -9,6 +9,7 @@
 #include "BigFood.h"
 #include "Menu.h"
 #include "FileMng.h"
+#include "Endgame.h"
 
 class Game
 	:public Allegro
@@ -20,6 +21,7 @@ public:
 	Snake *snake;
 	Board *board;
 	Menu *menuBoard;
+	Endgame *endBoard;
 	FileMng *file;
 	Direction dir, tmpDir;
 	float newInterval;
