@@ -1,14 +1,22 @@
 #pragma once
 #include "food.h"
+#include <list>
+using namespace std;
+
 class BigFood :
 	public Food
 {
 public:
 
-	int time;
-
-	BigFood(int sizeX, int sizeY);
+	static int time;
+	
+	BigFood(int sizeX, int sizeY, int u = 20);
 	~BigFood(void);
+	list<Food> elements;
+	//bool operator== (Point& p);
+	bool operator== (Snake& s);
 
-	bool operator== (Point& p);
+	void draw();
+
+	void update();
 };

@@ -15,7 +15,8 @@ Game::Game(void)
 
 	
 	snake = NULL;
-	food = new Food(sizeX, sizeY);
+	food = new Food(sizeX, sizeY, 20);
+	bigFood = new BigFood(sizeX,sizeY);
 	done = false;
 	draw = false;
 	menu = true;
@@ -35,8 +36,10 @@ Game::~Game(void)
 	delete board;
 	if(snake) delete snake;
 	delete food;
+	delete bigFood;
 	delete menuBoard;
 	delete file;
+	delete endBoard;
 }
 
 void Game::loadLevel(int num)
@@ -56,6 +59,8 @@ void Game::resetGame()
 	if(snake) delete snake;
 	snake = new Snake();
 	food->update();
+	bigFood->update();
+	bigFood->update();
 	tmpDir = RIGHT;
 	result = 0;
 	menu = false;
@@ -188,13 +193,39 @@ void Game::mainLoop()
 
             snake->dir = tmpDir;
 			
-			if(*food == *snake->head())
+			/*if(*food == *snake->head())
 			{
-				result += (currLevel+1);
+				result += ((currLevel+1)*food->value);
 				do
 				{
 					food->update();
 				} while(snake->inSnake(*food));
+
+				snake->growSnake();
+
+			}*/
+
+			if(*food == *snake)
+			{
+				result += ((currLevel+1)*food->value);
+				 BigFood::time++;
+				do
+				{
+					food->update();
+				} while(snake->inSnake(*food));
+
+				snake->growSnake();
+
+			}
+
+			printf("BigFood time: %d\n", BigFood::time);
+			if(*bigFood == *snake)
+			{
+				result += ((currLevel+1)*bigFood->value);
+				do
+				{
+					bigFood->update();
+				} while(snake->inSnake(*bigFood));
 
 				snake->growSnake();
 
@@ -217,7 +248,8 @@ void Game::mainLoop()
         {
 			al_clear_to_color(al_map_rgb(255,255,255));
 			board->draw();
-			food->draw();		    
+			food->draw();	
+			bigFood->draw();
 			snake->draw();
 
 			al_flip_display();
@@ -232,8 +264,4 @@ void Game::mainLoop()
 			endBoard->draw();
         }
 	}
-
-
-
-
 }

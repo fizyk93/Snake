@@ -7,10 +7,6 @@ using namespace std;
 
 Board::Board(short int *l, int *r, std::vector<ALLEGRO_FONT*> *f)
 {
-	//x0 = 160;
-	//y0 = 60;
-	//x1 = 20*sizeX + x0;
-	//y1 = 20*sizeY +y0;
 	level = l;
 	result = r;
 	font = f;

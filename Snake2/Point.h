@@ -23,7 +23,7 @@ public:
 	}
 	
 
-	virtual bool operator== (Point& p);
+	bool operator== (Point& p);
 	
 protected:
 	int x, y;

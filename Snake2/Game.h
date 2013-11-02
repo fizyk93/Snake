@@ -18,6 +18,7 @@ public:
 
 	
 	Food *food;
+	BigFood *bigFood;
 	Snake *snake;
 	Board *board;
 	Menu *menuBoard;

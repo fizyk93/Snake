@@ -4,6 +4,7 @@
 #include "Point.h"
 #include "Object.h"
 
+
 class Snake
 	: public Object
 {
@@ -25,6 +26,7 @@ public:
 	void growSnake();
 
 	bool inSnake(Point p);
+	bool inSnake(std::list<Point>& l);
 
 	bool crash();
 	
