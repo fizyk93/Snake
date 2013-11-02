@@ -10,6 +10,7 @@ Game::Game(void)
 	board = new Board(&currLevel, &result, &font);
 	menuBoard= new Menu(&currLevel, &result, &font);
 
+	file = new FileMng;
 	snake = NULL;
 	food = new Food(sizeX, sizeY);
 	done = false;
@@ -20,17 +21,19 @@ Game::Game(void)
 	currLevel = 0;
 	result = 0;
 	endgame = false;
-	
+
 }
 
 const float Game::levels[10] = {5, 6, 7.2, 8.6, 10.3, 12.4, 14.9, 17.9, 21.4, 25.7};
 
 Game::~Game(void)
 {
+	file->save();
 	delete board;
 	if(snake) delete snake;
 	delete food;
 	delete menuBoard;
+	delete file;
 }
 
 void Game::loadLevel(int num)
@@ -63,6 +66,8 @@ void Game::resetGame()
 void Game::mainLoop()
 {
 	Object::adjPos(WindowWidth, WindowHeight);
+	file->load();
+
 	while(!done)
     {
 
@@ -148,6 +153,7 @@ void Game::mainLoop()
 					loadLevel(currLevel);
                     break;
 				case ALLEGRO_KEY_ESCAPE:
+					draw = false;
                     menu=true;
                     break;
 				default: 
@@ -163,6 +169,7 @@ void Game::mainLoop()
                     menu=true;
                     break;
 				case ALLEGRO_KEY_ENTER:
+					
 					menu = true;
 					break;
 			}
@@ -173,6 +180,8 @@ void Game::mainLoop()
 			{
 				draw = false;
 				endgame = true;
+				file->update(result);
+				//file->read();
 			}
 
             snake->dir = tmpDir;
@@ -201,13 +210,12 @@ void Game::mainLoop()
 		
 		if(menu)
 		{
-			draw = false;
+			al_clear_to_color(al_map_rgb(255,255,255));
 			menuBoard->draw();
 			al_flip_display();
 		}
 		else if(draw)
         {
-			
 			al_clear_to_color(al_map_rgb(255,255,255));
 			board->draw();
 			food->draw();		    
