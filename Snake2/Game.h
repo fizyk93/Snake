@@ -49,6 +49,7 @@ public:
 
 private:
 	int sizeX, sizeY;
+	int abort;
 	bool draw, done, menu, endgame;
 	static const float levels[10];
 	short int currLevel;

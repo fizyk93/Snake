@@ -9,6 +9,7 @@ class BigFood :
 public:
 
 	static int time;
+	static bool active;
 	
 	BigFood(int sizeX, int sizeY, int u = 20);
 	~BigFood(void);

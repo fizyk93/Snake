@@ -3,12 +3,8 @@
 #include <iostream>
 
 int BigFood::time = 0;
+bool BigFood::active = false;
 
-//bool BigFood::operator== (Snake& s)
-//{
-//	return (Food(x,y) == s || Food(x+unit,y) == s || Food(x,y+unit) ==s || Food(x+unit,y+unit)== s);
-//
-//}
 
 bool BigFood::operator== (Snake& s)
 {
@@ -24,10 +20,11 @@ bool BigFood::operator== (Snake& s)
 }
 
 BigFood::BigFood(int sizeX, int sizeY, int u)
-	:Food(sizeX-1, sizeY-1, u)
+	:Food(sizeX-40, sizeY-25, u)
 {
 	time = 0;
 	value = 3;
+	active = false;
 	Food tmp[] = {Food(x,y), Food(x+unit, y), Food(x, y+unit), Food(x+unit,y+unit)};
 	elements.assign(tmp, tmp+4);
 }
@@ -39,7 +36,7 @@ BigFood::~BigFood(void)
 
 void BigFood::draw()
 {
-	al_draw_filled_rectangle(adjX+x+0, adjY+y+50+0, adjX+x+2*unit-0, adjY+y+50+2*unit-0, al_map_rgb(250,210,0));
+	al_draw_filled_rectangle(adjX+x+0, adjY+y+50+0, adjX+x+2*unit-0, adjY+y+50+2*unit-0, al_map_rgb(255,240,0));
 }
 
 void BigFood::update()

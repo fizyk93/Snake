@@ -32,3 +32,5 @@ bool Point::operator== (Point& p)
 	return ((x == p.getX()) && (y == p.getY()));
 }
 
+
+

@@ -1,5 +1,7 @@
 #include "Game.h"
+#include "Collision.h"
 #include <iostream>
+
 
 
 Game::Game(void)
@@ -212,23 +214,42 @@ void Game::mainLoop()
 				do
 				{
 					food->update();
-				} while(snake->inSnake(*food));
+				} while(Collision::inSnake(*snake, *food)/*snake->inSnake(*food)*/);
 
 				snake->growSnake();
 
 			}
 
-			printf("BigFood time: %d\n", BigFood::time);
-			if(*bigFood == *snake)
+			if(BigFood::time >= 10 && !BigFood::active)
 			{
-				result += ((currLevel+1)*bigFood->value);
+				
+				abort = 0;
 				do
 				{
 					bigFood->update();
-				} while(snake->inSnake(*bigFood));
+					abort++;
+				} while(Collision::inSnake(*snake, bigFood->elements) && abort < 10/*snake->inSnake(*bigFood)*/);
+				if(abort < 10) 	
+				{
+					BigFood::active = true;
+					BigFood::time = 50;
+				}
+				
+			}
 
-				snake->growSnake();
+			//printf("BigFood time: %d\n", BigFood::time);
 
+			if(BigFood::active)
+			{
+				BigFood::time--;
+				if(*bigFood == *snake)
+				{
+					result += ((currLevel+1)*bigFood->value);
+					snake->growSnake();
+					BigFood::time = 0;
+				}
+
+				if(BigFood::time <= 0) BigFood::active = false;
 			}
 
 
@@ -249,7 +270,8 @@ void Game::mainLoop()
 			al_clear_to_color(al_map_rgb(255,255,255));
 			board->draw();
 			food->draw();	
-			bigFood->draw();
+			if(BigFood::active)
+				bigFood->draw();
 			snake->draw();
 
 			al_flip_display();

@@ -26,7 +26,9 @@ public:
 	void growSnake();
 
 	bool inSnake(Point p);
-	bool inSnake(std::list<Point>& l);
+	
+	template<class T>
+	bool inSnake(std::list<T>& l);
 
 	bool crash();
 	

@@ -92,18 +92,19 @@ bool Snake::inSnake(Point p)
 	return false;
 }
 
-bool Snake::inSnake(std::list<Point>& l)
-{
-	std::list<Point>::iterator it = this->head();
-	it++;
-	for(it; it != this->tail(); it++)
-	{
-		for(std::list<Point>::iterator it2 = l.begin(); it2 != l.end(); it2++)
-			if(*it==*it2) return true;
-	}
-
-	return false;
-}
+//template<class T>
+//bool Snake::inSnake(std::list<T>& l)
+//{
+//	std::list<Point>::iterator it = this->head();
+//	it++;
+//	for(it; it != this->tail(); it++)
+//	{
+//		for(std::list<T>::iterator it2 = l.begin(); it2 != l.end(); it2++)
+//			if(*it==*it2) return true;
+//	}
+//
+//	return false;
+//}
 
 bool Snake::crash()
 {
