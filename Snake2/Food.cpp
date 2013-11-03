@@ -35,7 +35,8 @@ void Food::update()
 	{
 		tmpx = 20*(rand()%sizeX);
 		tmpy = 20*(rand()%sizeY);
-	}while(x == tmpx || y == tmpy);
+
+	}while(x == tmpx && y == tmpy);
 
 	x=tmpx;
 	y=tmpy;
@@ -53,16 +54,28 @@ bool Food::operator== (Snake& s)
 	switch (s.dir)
 	{
 	case UP:
-		if(x == s.head()->getX() && y+unit == s.head()->getY()) ans = true;
+		if(y == 20*(sizeY-1))
+			ans = (x == s.head()->getX() && 0 == s.head()->getY())?true:false;
+		else
+			ans = (x == s.head()->getX() && y+unit == s.head()->getY())?true:false;		
 		break;
 	case RIGHT:
-		if(x-unit == s.head()->getX() && y == s.head()->getY()) ans = true;
+		if(x == 0)
+			ans = (20*(sizeX-1) == s.head()->getX() && y == s.head()->getY())?true:false;
+		else
+			ans = (x-unit == s.head()->getX() && y == s.head()->getY())?true:false;
 		break;
 	case DOWN:
-		if(x == s.head()->getX() && y-unit == s.head()->getY()) ans = true;
+		if(y == 0)
+			ans = (x == s.head()->getX() && 20*(sizeY-1) == s.head()->getY())?true:false;
+		else
+			ans = (x == s.head()->getX() && y-unit == s.head()->getY())?true:false;	
 		break;
 	case LEFT:
-		if(x+unit == s.head()->getX() && y == s.head()->getY()) ans = true;
+		if(x == 20*(sizeX-1))
+			ans = (0 == s.head()->getX() && y == s.head()->getY())?true:false;
+		else
+			ans = (x+unit == s.head()->getX() && y == s.head()->getY())?true:false;
 		break;
 	default:
 		break;

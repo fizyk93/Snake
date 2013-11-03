@@ -1,91 +1,98 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Allegro" Collapsed="true">
-    <Position X="0.5" Y="4.5" Width="1.5" />
+  <Class Name="Allegro">
+    <Position X="10" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>JAYAgAABAAACABAAQAAAAAAQCIEAAAIgAQAAAAAAIig=</HashCode>
       <FileName>Allegro.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BigFood" Collapsed="true">
-    <Position X="0.75" Y="3.5" Width="1.5" />
+  <Class Name="BigFood">
+    <Position X="1" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAABAAABIAAQAAEAAAAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>AAABAAAAAAAAABAAABIAAQAAEAAAAAAAAAAAIAAEAAA=</HashCode>
       <FileName>BigFood.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Board" Collapsed="true">
-    <Position X="5" Y="1.75" Width="1.5" />
+  <Class Name="Board">
+    <Position X="6" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAACBAAAAABAIAAABAAAFgAACAAQAAQCAEAAA=</HashCode>
       <FileName>Board.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FileMng" Collapsed="true">
-    <Position X="10.75" Y="0.75" Width="1.5" />
+  <Class Name="FileMng">
+    <Position X="13.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAACAAAICAAAAAACAAAAAAAAAAAAAAFAAAAEAEQAA=</HashCode>
       <FileName>FileMng.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Food" Collapsed="true">
-    <Position X="0.75" Y="1.75" Width="1.5" />
+  <Class Name="Food">
+    <Position X="1" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAQAAAAAAAKAAEACAAgAEAAA=</HashCode>
       <FileName>Food.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Game" Collapsed="true">
-    <Position X="0.5" Y="5.75" Width="1.5" />
+  <Class Name="Game">
+    <Position X="12" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAQCQAIAAIBAcBAAhEAImAUACAfBCBAAAQAAI=</HashCode>
+      <HashCode>AAIAAAAAQCQAIAAIBAchAAhEAImAUACAfBCBAAAQAAI=</HashCode>
       <FileName>Game.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Menu" Collapsed="true">
-    <Position X="6.25" Y="3.25" Width="1.5" />
+  <Class Name="Menu">
+    <Position X="7.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAABAAAAIAAIAAAAAAAAIAAiAAAAAAAAEAAA=</HashCode>
       <FileName>Menu.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Object" Collapsed="true">
+  <Class Name="Object">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAGAAAgAAIAAAAAAAAAAAAAEACAAEAEAAA=</HashCode>
       <FileName>Object.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Point" Collapsed="true">
+  <Class Name="Point">
     <Position X="1" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAAAggAAAAAAAAQAAAAAAAAAAAABgAGAAAAA=</HashCode>
       <FileName>Point.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Snake" Collapsed="true">
-    <Position X="7.5" Y="0.75" Width="1.5" />
+  <Class Name="Snake">
+    <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAgCAgAACAAAIAAAAIAAAIAAAAyAAAAAAEAgA=</HashCode>
       <FileName>Snake.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Endgame" Collapsed="true">
-    <Position X="4" Y="3.25" Width="1.5" />
+  <Class Name="Endgame">
+    <Position X="4.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAABAAABAAAAA=</HashCode>
       <FileName>Endgame.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="Font" Collapsed="true">
-    <Position X="12.75" Y="1.75" Width="1.5" />
+  <Class Name="Collision">
+    <Position X="15.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAICAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Collision.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Font">
+    <Position X="11.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAABAAQAAAAAAAAIAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>Allegro.h</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="Direction" Collapsed="true">
-    <Position X="10.75" Y="1.5" Width="1.5" />
+  <Enum Name="Direction">
+    <Position X="11.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Point.h</FileName>

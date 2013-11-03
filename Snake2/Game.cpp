@@ -211,9 +211,12 @@ void Game::mainLoop()
 			{
 				result += ((currLevel+1)*food->value);
 				 BigFood::time++;
+				int t=0;
 				do
 				{
 					food->update();
+					t++;
+					if(t>1) std::cout << "WORKS!\n";
 				} while(Collision::inSnake(*snake, *food)/*snake->inSnake(*food)*/);
 
 				snake->growSnake();
