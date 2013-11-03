@@ -70,9 +70,11 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Endgame.cpp" />
+    <ClCompile Include="ExtraFood.cpp" />
     <ClCompile Include="FileMng.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="LongFood.cpp" />
     <ClCompile Include="mainNew.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -85,9 +87,11 @@
     <ClInclude Include="Board.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Endgame.h" />
+    <ClInclude Include="ExtraFood.h" />
     <ClInclude Include="FileMng.h" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="LongFood.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Point.h" />

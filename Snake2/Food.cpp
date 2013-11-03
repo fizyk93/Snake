@@ -14,6 +14,7 @@ Food::Food(int sizeX, int sizeY, int u)
 	x = 20*(rand()%sizeX);
     y = 20*(rand()%sizeY);
 	value = 1;
+	srand(time(NULL));
 }
 
 Food::Food(int x, int y)
@@ -30,7 +31,7 @@ Food::~Food(void)
 void Food::update()
 {
 	int tmpx, tmpy;
-	srand(time(NULL));
+	
 	do
 	{
 		tmpx = 20*(rand()%sizeX);

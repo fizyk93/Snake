@@ -10,6 +10,8 @@
 #include "Menu.h"
 #include "FileMng.h"
 #include "Endgame.h"
+#include "ExtraFood.h"
+#include "LongFood.h"
 
 class Game
 	:public Allegro
@@ -18,7 +20,7 @@ public:
 
 	
 	Food *food;
-	BigFood *bigFood;
+	ExtraFood *bigFood;
 	Snake *snake;
 	Board *board;
 	Menu *menuBoard;

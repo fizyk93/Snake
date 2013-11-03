@@ -107,8 +107,8 @@ int Allegro::displaySetUp()
 {
     al_get_display_mode(al_get_num_display_modes()-1, &disp_data);
 
-	al_set_new_display_flags(ALLEGRO_FULLSCREEN);
-	std::cout << "Width: " << disp_data.width << "\nHeight: " << disp_data.height << "\nFormat: " << disp_data.format << "\nRefresh rate: " << disp_data.refresh_rate;
+	//al_set_new_display_flags(ALLEGRO_FULLSCREEN);
+	std::cout << "Width: " << disp_data.width << "\nHeight: " << disp_data.height << "\nFormat: " << disp_data.format << "\nRefresh rate: " << disp_data.refresh_rate << std::endl;
 
 
 	WindowWidth = disp_data.width;

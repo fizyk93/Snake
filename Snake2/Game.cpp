@@ -18,7 +18,7 @@ Game::Game(void)
 	
 	snake = NULL;
 	food = new Food(sizeX, sizeY, 20);
-	bigFood = new BigFood(sizeX,sizeY);
+	//bigFood = new BigFood(sizeX,sizeY);
 	done = false;
 	draw = false;
 	menu = true;
@@ -38,7 +38,7 @@ Game::~Game(void)
 	delete board;
 	if(snake) delete snake;
 	delete food;
-	delete bigFood;
+	//delete bigFood;
 	delete menuBoard;
 	delete file;
 	delete endBoard;
@@ -61,8 +61,8 @@ void Game::resetGame()
 	if(snake) delete snake;
 	snake = new Snake();
 	food->update();
-	bigFood->update();
-	bigFood->update();
+	//bigFood->update();
+	//bigFood->update();
 	tmpDir = RIGHT;
 	result = 0;
 	menu = false;
@@ -195,18 +195,6 @@ void Game::mainLoop()
 
             snake->dir = tmpDir;
 			
-			/*if(*food == *snake->head())
-			{
-				result += ((currLevel+1)*food->value);
-				do
-				{
-					food->update();
-				} while(snake->inSnake(*food));
-
-				snake->growSnake();
-
-			}*/
-
 			if(*food == *snake)
 			{
 				result += ((currLevel+1)*food->value);
@@ -217,26 +205,38 @@ void Game::mainLoop()
 					food->update();
 					t++;
 					if(t>1) std::cout << "WORKS!\n";
-				} while(Collision::inSnake(*snake, *food)/*snake->inSnake(*food)*/);
+				} while(Collision::inSnake(*snake, *food));
 
 				snake->growSnake();
 
 			}
 
-			if(BigFood::time >= 10 && !BigFood::active)
+			if(BigFood::time >= 1 && !BigFood::active)
 			{
 				
+				if(rand()%2==0)
+					bigFood = new LongFood(sizeX,sizeY);
+				else
+					bigFood = new BigFood(sizeX,sizeY);
+				printf("1. Food: (%d, %d)\tSnake: (%d, %d)\n", bigFood->getX(), bigFood->getY(), snake->head()->getX(), snake->head()->getY());
 				abort = 0;
-				do
+				while(Collision::inSnake(*snake, bigFood->elements) && abort < 10);
 				{
+					std::cout << "WORKS2!\n";
+					
 					bigFood->update();
+					printf("2. Food: (%d, %d)\tSnake: (%d, %d)\n", bigFood->getX(), bigFood->getY(), snake->head()->getX(), snake->head()->getY());
+
 					abort++;
-				} while(Collision::inSnake(*snake, bigFood->elements) && abort < 10/*snake->inSnake(*bigFood)*/);
+				} 
+
 				if(abort < 10) 	
 				{
 					BigFood::active = true;
-					BigFood::time = 50;
+					BigFood::time = 500;
 				}
+				else
+					delete bigFood;
 				
 			}
 
@@ -250,6 +250,7 @@ void Game::mainLoop()
 					result += ((currLevel+1)*bigFood->value);
 					snake->growSnake();
 					BigFood::time = 0;
+					delete bigFood;
 				}
 
 				if(BigFood::time <= 0) BigFood::active = false;

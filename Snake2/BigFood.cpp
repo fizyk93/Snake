@@ -2,25 +2,24 @@
 #include "Allegro.h"
 #include <iostream>
 
-int BigFood::time = 0;
-bool BigFood::active = false;
 
 
-bool BigFood::operator== (Snake& s)
-{
-	for(list<Food>::iterator it = elements.begin(); it != elements.end(); it++)
-	{
-		if(*it == s) return true;
-		printf("food: (%d, %d)\t" , it->getX(), it->getY()); 
-	}
-	
-	printf("snake: (%d, %d)\n", s.head()->getX(), s.head()->getY());
-	
-	return false;
-}
+
+//bool BigFood::operator== (Snake& s)
+//{
+//	for(list<Food>::iterator it = elements.begin(); it != elements.end(); it++)
+//	{
+//		if(*it == s) return true;
+//		printf("food: (%d, %d)\t" , it->getX(), it->getY()); 
+//	}
+//	
+//	printf("snake: (%d, %d)\n", s.head()->getX(), s.head()->getY());
+//	
+//	return false;
+//}
 
 BigFood::BigFood(int sizeX, int sizeY, int u)
-	:Food(sizeX-40, sizeY-25, u)
+	:Food(sizeX-1, sizeY-1, u)
 {
 	time = 0;
 	value = 3;
