@@ -3,7 +3,7 @@
 
 
 LongFood::LongFood(int sizeX, int sizeY, int u)
-	:Food(sizeX-3, sizeY, u)
+	:Food(sizeX-20, sizeY-15, u)
 {
 	time = 0;
 	value = 3;

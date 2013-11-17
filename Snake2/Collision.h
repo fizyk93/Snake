@@ -9,6 +9,8 @@ public:
 	
 	static bool Collision::inSnake(Snake& s, std::list<Food>& l);
 
+
+
 private:
 	Collision(void);
 	

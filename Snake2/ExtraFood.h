@@ -2,6 +2,7 @@
 #include "food.h"
 #include <list>
 using namespace std;
+
 class ExtraFood :
 	virtual public Food
 {

@@ -211,7 +211,7 @@ void Game::mainLoop()
 
 			}
 
-			if(BigFood::time >= 1 && !BigFood::active)
+			if(BigFood::time >= 10 && !BigFood::active)
 			{
 				
 				if(rand()%2==0)
