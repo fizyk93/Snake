@@ -220,7 +220,7 @@ void Game::mainLoop()
 					bigFood = new BigFood(sizeX,sizeY);
 				printf("1. Food: (%d, %d)\tSnake: (%d, %d)\n", bigFood->getX(), bigFood->getY(), snake->head()->getX(), snake->head()->getY());
 				abort = 0;
-				while(Collision::inSnake(*snake, bigFood->elements) && abort < 10);
+				while(Collision::inSnake(*snake, bigFood->elements) && abort < 10)
 				{
 					std::cout << "WORKS2!\n";
 					
