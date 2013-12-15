@@ -12,7 +12,7 @@ public:
 	~Board(void);
 	virtual void draw();
 	virtual void update();
-	//static int adjX, adjY;
+	//static int adjustX, adjustY;
 	//static void adjPos(int w, int h);
 
 

@@ -3,7 +3,7 @@ class Object
 {
 public:
 	
-	static int adjX, adjY;
+	static int adjustX, adjustY;
 	
 	Object(void);
 	~Object(void);

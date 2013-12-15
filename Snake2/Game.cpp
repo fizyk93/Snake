@@ -17,8 +17,8 @@ Game::Game(void)
 
 	
 	snake = NULL;
+	Food::setBoard(sizeX, sizeY);
 	food = new Food(sizeX, sizeY, 20);
-	//bigFood = new BigFood(sizeX,sizeY);
 	done = false;
 	draw = false;
 	menu = true;
@@ -211,7 +211,7 @@ void Game::mainLoop()
 
 			}
 
-			if(BigFood::time >= 1 && !BigFood::active)
+			if(BigFood::time >= 9 && !BigFood::active)
 			{
 				
 				if(rand()%2==0)
@@ -233,7 +233,7 @@ void Game::mainLoop()
 				if(abort < 10) 	
 				{
 					BigFood::active = true;
-					BigFood::time = 500;
+					BigFood::time = 50;
 				}
 				else
 					delete bigFood;

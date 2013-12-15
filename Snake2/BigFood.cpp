@@ -35,7 +35,7 @@ BigFood::~BigFood(void)
 
 void BigFood::draw()
 {
-	al_draw_filled_rectangle(adjX+x+0, adjY+y+50+0, adjX+x+2*unit-0, adjY+y+50+2*unit-0, al_map_rgb(255,240,0));
+	al_draw_filled_rectangle(adjustX+x+0, adjustY+y+50+0, adjustX+x+2*unit-0, adjustY+y+50+2*unit-0, al_map_rgb(255,240,0));
 }
 
 void BigFood::update()

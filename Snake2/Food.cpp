@@ -5,6 +5,16 @@
 #include <cstdlib>
 #include <iostream>
 
+int Food::boardX = 0;
+int Food::boardY = 0;
+
+void Food::setBoard(int x, int y)
+{
+	Food::boardX = x;
+	Food::boardY = y;
+}
+
+
 Food::Food(int sizeX, int sizeY, int u)
 	: Point(u)
 {
@@ -46,7 +56,7 @@ void Food::update()
 
 void Food::draw()
 {
-	al_draw_rectangle(adjX+x+6, adjY+y+50+6, adjX+x+unit-6, adjY+y+50+unit-6, al_map_rgb(0,0,0), 4);
+	al_draw_rectangle(adjustX+x+6, adjustY+y+50+6, adjustX+x+unit-6, adjustY+y+50+unit-6, al_map_rgb(0,0,0), 4);
 }
 
 bool Food::operator== (Snake& s)
@@ -55,25 +65,25 @@ bool Food::operator== (Snake& s)
 	switch (s.dir)
 	{
 	case UP:
-		if(y == 20*(sizeY-1))
+		if(y == 20*(boardY-1))
 			ans = (x == s.head()->getX() && 0 == s.head()->getY())?true:false;
 		else
 			ans = (x == s.head()->getX() && y+unit == s.head()->getY())?true:false;		
 		break;
 	case RIGHT:
 		if(x == 0)
-			ans = (20*(sizeX-1) == s.head()->getX() && y == s.head()->getY())?true:false;
+			ans = (20*(boardX-1) == s.head()->getX() && y == s.head()->getY())?true:false;
 		else
 			ans = (x-unit == s.head()->getX() && y == s.head()->getY())?true:false;
 		break;
 	case DOWN:
 		if(y == 0)
-			ans = (x == s.head()->getX() && 20*(sizeY-1) == s.head()->getY())?true:false;
+			ans = (x == s.head()->getX() && 20*(boardY-1) == s.head()->getY())?true:false;
 		else
 			ans = (x == s.head()->getX() && y-unit == s.head()->getY())?true:false;	
 		break;
 	case LEFT:
-		if(x == 20*(sizeX-1))
+		if(x == 20*(boardX-1))
 			ans = (0 == s.head()->getX() && y == s.head()->getY())?true:false;
 		else
 			ans = (x+unit == s.head()->getX() && y == s.head()->getY())?true:false;

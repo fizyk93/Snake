@@ -19,8 +19,11 @@ public:
 
 	Food(int x, int y);
 
+	static void setBoard(int x, int y);
+
 private:
 	int sizeX, sizeY;
+	static int boardX, boardY;
 
 };
 

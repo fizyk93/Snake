@@ -19,7 +19,7 @@ LongFood::~LongFood(void)
 
 void LongFood::draw()
 {
-	al_draw_filled_rectangle(adjX+x+0, adjY+y+50+0, adjX+x+4*unit-0, adjY+y+50+unit-0, al_map_rgb(255,240,0));
+	al_draw_filled_rectangle(adjustX+x+0, adjustY+y+50+0, adjustX+x+4*unit-0, adjustY+y+50+unit-0, al_map_rgb(255,240,0));
 }
 
 void LongFood::update()
